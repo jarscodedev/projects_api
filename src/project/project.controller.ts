@@ -21,6 +21,7 @@ export class ProjectsController {
 
   @Post("create-project")
   @ApiOperation({ summary: 'Create Project' })
+  @ApiBody({ type: CreateProjectDto } )
   @ApiResponse({ status: 201, description: 'Project created successfully.'}) 
   @ApiResponse({ status: 400, description: 'Bad request. Please check your data.'}) 
   @ApiResponse({ status: 422, description: 'Unprocessable entity. Project data is invalid.'}) 
@@ -41,7 +42,7 @@ export class ProjectsController {
   }
 
   @Delete("delete-project")
-  @ApiOperation({ summary: 'Delete Project' })
+  @ApiOperation({ summary: 'Delete Project by Id' })
   @ApiResponse({ status: 200, description: 'Project deleted successfully.'})
   @ApiResponse({ status: 400, description: 'Bad request. Please check your data.'})
   @ApiResponse({ status: 404, description: 'Not found. No project found.'})

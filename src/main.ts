@@ -17,17 +17,17 @@ async function bootstrap() {
     .build()
   const document = SwaggerModule.createDocument(app, config)
 
-  SwaggerModule.setup('api/docs', app, document)
+  SwaggerModule.setup('api-docs', app, document)
 
   app.enableCors()
 
   // Configurar Basic Auth
-  app.use('/api/docs', basicAuth({
+  app.use('/api-docs', basicAuth({
     users: { [process.env.SWAGGER_USER]: process.env.SWAGGER_PASSWORD }, 
     challenge: true
   }));
 
-  app.use('/api/docs', express.static(join(__dirname, '..', 'node_modules', 'swagger-ui-dist')))
+  app.use('/api-docs', express.static(join(__dirname, '..', 'node_modules', 'swagger-ui-dist')))
 
   await app.listen(3000)
 
