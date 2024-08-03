@@ -4,11 +4,11 @@ import { CreateProjectDto, UpdateProjectDto } from "./dto/project.dto"
 import { ApiBody, ApiOperation, ApiResponse } from "@nestjs/swagger"
 
 @Controller()
-export class ProjectsController {
+export class ProjectController {
 
   constructor(private readonly projectService: ProjectsService) {}
 
-  @Get("get-projects")
+  @Get("projects")
   @ApiOperation({ summary: 'Get Projects' })
   @ApiResponse({ status: 200, description: 'Projects fetched successfully.'})
   @ApiResponse({ status: 500, description: 'Internal server error. An error occurred during projects fetch.'})
